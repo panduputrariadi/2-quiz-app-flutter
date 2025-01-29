@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/first_screen.dart';
+import 'package:quiz_app/question_quiz.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -10,6 +11,13 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  Widget activeScreen = const FirstScreen(switchScreen);
+  void switchScreen() {
+    setState(() {
+      activeScreen = const QuestionQuiz();
+    });
+  }
+
   @override
   Widget build(context) {
     return MaterialApp(
@@ -25,7 +33,7 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: const FirstScreen(),
+          child: activeScreen,
         ),
       ),
     );
