@@ -8,7 +8,20 @@ class FirstScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/quiz-logo.png', width: 200, height: 200),
+          Image.asset(
+            'assets/images/quiz-logo.png',
+            width: 200,
+            height: 200,
+            color: const Color.fromARGB(150, 255, 255, 255),
+          ),
+          // Opacity(
+          //   opacity: 0.5,
+          //   child: Image.asset(
+          //     'assets/images/quiz-logo.png',
+          //     width: 200,
+          //     height: 200,
+          //   ),
+          // ),
           const SizedBox(height: 20),
           const Text(
             'Quiz App',
@@ -19,12 +32,13 @@ class FirstScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          OutlinedButton(
+          OutlinedButton.icon(
             onPressed: () {},
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),
-            child: const Text('Start Quiz'),
+            icon: const Icon(Icons.arrow_circle_right_outlined),
+            label: const Text('Start Quiz'),
           ),
         ],
       ),
