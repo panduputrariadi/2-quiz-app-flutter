@@ -16,36 +16,46 @@ class _QuestionQuizState extends State<QuestionQuiz> {
     final dataArrayQuestion = Question[0];
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            dataArrayQuestion.text,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
+      child: Container(
+        margin: const EdgeInsets.all(50),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              dataArrayQuestion.text,
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.white,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          AnswerButton(
-            answerText: dataArrayQuestion.answer[0],
-            onTap: () {},
-          ),
-          AnswerButton(
-            answerText: dataArrayQuestion.answer[1],
-            onTap: () {},
-          ),
-          AnswerButton(
-            answerText: dataArrayQuestion.answer[2],
-            onTap: () {},
-          ),
-          AnswerButton(
-            answerText: dataArrayQuestion.answer[3],
-            onTap: () {},
-          ),
-        ],
+            const SizedBox(
+              height: 30,
+            ),
+            ...dataArrayQuestion.answer.map((answer) {
+              return AnswerButton(
+                answerText: answer,
+                onTap: () {},
+              );
+            })
+            // AnswerButton(
+            //   answerText: dataArrayQuestion.answer[0],
+            //   onTap: () {},
+            // ),
+            // AnswerButton(
+            //   answerText: dataArrayQuestion.answer[1],
+            //   onTap: () {},
+            // ),
+            // AnswerButton(
+            //   answerText: dataArrayQuestion.answer[2],
+            //   onTap: () {},
+            // ),
+            // AnswerButton(
+            //   answerText: dataArrayQuestion.answer[3],
+            //   onTap: () {},
+            // ),
+          ],
+        ),
       ),
     );
   }
