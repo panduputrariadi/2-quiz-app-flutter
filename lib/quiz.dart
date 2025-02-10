@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/question.dart';
 import 'package:quiz_app/first_screen.dart';
 import 'package:quiz_app/question_quiz.dart';
 
@@ -18,9 +19,22 @@ class _QuizState extends State<Quiz> {
     super.initState();
   }
 
+  List<String> choosenAnswer = [];
+  void chooseAnswer(String answer) {
+    choosenAnswer.add(answer);
+    if (choosenAnswer.length == Question.length) {
+      setState(() {
+        choosenAnswer = [];
+        activeScreen = FirstScreen(switchScreen);
+      });
+    }
+  }
+
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionQuiz();
+      activeScreen = QuestionQuiz(
+        chooseAnswer: chooseAnswer,
+      );
     });
   }
 
