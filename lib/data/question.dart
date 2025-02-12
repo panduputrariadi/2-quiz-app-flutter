@@ -1,5 +1,6 @@
 import 'package:quiz_app/model/quiz_type.dart';
 
+// ignore: constant_identifier_names
 const Question = [
   QuizType(
     'What are the main building blocks of Flutter UIs?',
